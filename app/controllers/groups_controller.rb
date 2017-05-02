@@ -42,7 +42,6 @@ end
 def destroy
   @group.destroy
   flash[:alert] = "group delete"
-
 end
 
 def join
