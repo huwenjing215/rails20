@@ -35,7 +35,7 @@ end
 
 def show
   @group = Group.find(params[:id])
-  @posts = @group.posts
+  @posts = @group.posts.recent
 end
 
 def destroy
@@ -52,7 +52,7 @@ end
 
 def find_group_and_check_permission
   @group = Group.find(params[:id])
-  
+
   if current_user !=@group.user
     redirect_to root_path, alert: "you have no permission"
   end
